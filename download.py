@@ -7,8 +7,8 @@ from tqdm import tqdm
 home = os.path.expanduser('~')
 downloads = os.path.join(home, 'Downloads')
 
-success = "Архив успешно разархивирован!"
-notsuccess = "He удалось скачать файл."
+success = "Unarchived!"
+notsuccess = "Download Error"
 
 def bluetooth():
     url = "https://download.msi.com/nb_drivers/bt/PHBTW65817_22.180.0.2G_22.180.0.2_0x6c0c33e9.zip"  
