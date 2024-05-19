@@ -92,6 +92,7 @@ def LAN():
         os.system(downloads + "\\LAN\\Install_PCIE_Win11_11.10.0720.2022_08232022.exe")
     else:
         print(notsuccess)
+    IntelVGA()
 
 def IntelVGA():
     url = "https://download.msi.com/nb_drivers/vga/Intel_VGA_31.0.101.4314_31.0.101.4314_0x26f4cecd.zip"  
@@ -109,9 +110,11 @@ def IntelVGA():
             zip_ref.extractall(downloads + "\\IntelVGA")
         os.remove(downloads + "\\IntelVGA.zip")
         print(success)
-        # os.system(downloads + "\\LAN\\Install_PCIE_Win11_11.10.0720.2022_08232022.exe")
+        os.system(downloads + "\\IntelVGA\\install.bat")
     else:
         print(notsuccess)
+    NvidiaVGA()
+
 def NvidiaVGA():
     url = "https://download.msi.com/nb_drivers/vga/1107254_537.24_GameReady_WHQL_31.0.15.3724_0x30e04b3b.zip"  
     response = requests.get(url, stream=True)
@@ -128,7 +131,10 @@ def NvidiaVGA():
             zip_ref.extractall(downloads + "\\NvidiaVGA")
         os.remove(downloads + "\\NvidiaVGA.zip")
         print(success)
-        # os.system(downloads + "\\LAN\\Install_PCIE_Win11_11.10.0720.2022_08232022.exe")
+        os.system(downloads + "\\NvidiaVGA\\install.bat")
+    else:
+        print(notsuccess)
+    Chipset()
 
 def Chipset():
     url = "https://download.msi.com/nb_drivers/cs/Intel_Chipset_10.1.19468.8385_10.1.19468.8385_0xcd599de1.zip"  
@@ -146,7 +152,10 @@ def Chipset():
             zip_ref.extractall(downloads + "\\Chipset")
         os.remove(downloads + "\\Chipset.zip")
         print(success)
-        # os.system(downloads + "\\LAN\\Install_PCIE_Win11_11.10.0720.2022_08232022.exe")
+        os.system(downloads + "\\Chipset\\install.bat")
+    else:
+        print(notsuccess)
+    Chipset2()
 
 def Chipset2():
     url = "https://download.msi.com/nb_drivers/hdi/HIDEventFilterDriver-2.2.2.1_v3_RS5_19H1_20H1_21H2_22H2_Certified_2.2.2.1_0x185b20cf.zip"  
@@ -164,7 +173,10 @@ def Chipset2():
             zip_ref.extractall(downloads + "\\Chipset2")
         os.remove(downloads + "\\Chipset2.zip")
         print(success)
-        # os.system(downloads + "\\LAN\\Install_PCIE_Win11_11.10.0720.2022_08232022.exe")
+        os.system(f"pnputil /add-driver {downloads}\\Chipset2\\drivers\\x64\\HidEventFilter.inf  /install")
+    else:
+        print(notsuccess)
+    Chipset3()
 
 def Chipset3():
     url = "https://download.msi.com/nb_drivers/gna/gna-03.00.00.1457-win-3_0_sv2_resign-20220819_3.0.0.1457_0x9a3a0aa1.zip"  
@@ -182,5 +194,8 @@ def Chipset3():
             zip_ref.extractall(downloads + "\\Chipset3")
         os.remove(downloads + "\\Chipset3.zip")
         print(success)
-        # os.system(downloads + "\\LAN\\Install_PCIE_Win11_11.10.0720.2022_08232022.exe")
+        os.system(f"pnputil /add-driver {downloads}\\Chipset3\\gna.inf  /install")
+    else:
+        print(notsuccess)
+
 bluetooth()
