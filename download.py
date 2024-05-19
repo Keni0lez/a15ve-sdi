@@ -3,12 +3,19 @@ import zipfile
 import io
 import os
 from tqdm import tqdm
+from datetime import datetime
+
+def success():
+    ct = datetime.now().strftime("%H:%M:%S")
+    print(f"[{ct}]\033[32m Unarchived! \033[0m")
+
+def notsuccess():
+    ct = datetime.now().strftime("%H:%M:%S")
+    print(f"[{ct}]\033[31m Download Error \033[0m")
 
 home = os.path.expanduser('~')
 downloads = os.path.join(home, 'Downloads')
 
-success = "Unarchived!"
-notsuccess = "Download Error"
 
 def bluetooth():
     url = "https://download.msi.com/nb_drivers/bt/PHBTW65817_22.180.0.2G_22.180.0.2_0x6c0c33e9.zip"  
@@ -25,11 +32,9 @@ def bluetooth():
         with zipfile.ZipFile(downloads + "\\bluetooth.zip") as zip_ref:
             zip_ref.extractall(downloads + "\\bluetooth")
         os.remove(downloads + "\\bluetooth.zip")
-        print(success)
-        os.system(downloads + "\\bluetooth\\Win10_UWD\\WirelessSetup.exe")
+        success()
     else:
-        print(notsuccess)
-    IMED()
+        notsuccess()
 
 def IMED():
     url = "https://download.msi.com/nb_drivers/me/Intel_CSME_SW_2242.3.34.0_Consumer_2240.3.4.0_0x7fdbbd2a.zip"  
@@ -47,10 +52,8 @@ def IMED():
             zip_ref.extractall(downloads + "\\IMED")
         os.remove(downloads + "\\IMED.zip")
         print(success)
-        os.system(downloads + "\\IMED\\Intel_CSME_SW_2242.3.34.0_Consumer\\Installers\\Main_DCH\\SetupME.exe")
     else:
-        print(notsuccess)
-    TP()
+        notsuccess()
 
 def TP():
     url = "https://download.msi.com/nb_drivers/tp/Intel_SerialIO_30.100.2237.26_30.100.2237.26_0xdf27a9fc.zip"  
@@ -67,11 +70,9 @@ def TP():
         with zipfile.ZipFile(downloads + "\\TouchPad.zip") as zip_ref:
             zip_ref.extractall(downloads + "\\TouchPad")
         os.remove(downloads + "\\TouchPad.zip")
-        print(success)
-        os.system(downloads + "\\TouchPad\\install.bat")
+        success()
     else:
-        print(notsuccess)
-    LAN()
+        notsuccess()
 
 def LAN():
     url = "https://download.msi.com/nb_drivers/lan/Install_PCIE_Win11_11.10.0720.2022_08232022_1168.10.720.2022_0xbf2bb9f0.zip"  
@@ -88,11 +89,9 @@ def LAN():
         with zipfile.ZipFile(downloads + "\\LAN.zip") as zip_ref:
             zip_ref.extractall(downloads + "\\LAN")
         os.remove(downloads + "\\LAN.zip")
-        print(success)
-        os.system(downloads + "\\LAN\\Install_PCIE_Win11_11.10.0720.2022_08232022.exe")
+        success()
     else:
-        print(notsuccess)
-    IntelVGA()
+        notsuccess()
 
 def IntelVGA():
     url = "https://download.msi.com/nb_drivers/vga/Intel_VGA_31.0.101.4314_31.0.101.4314_0x26f4cecd.zip"  
@@ -109,11 +108,9 @@ def IntelVGA():
         with zipfile.ZipFile(downloads + "\\IntelVGA.zip") as zip_ref:
             zip_ref.extractall(downloads + "\\IntelVGA")
         os.remove(downloads + "\\IntelVGA.zip")
-        print(success)
-        os.system(downloads + "\\IntelVGA\\install.bat")
+        success()
     else:
-        print(notsuccess)
-    NvidiaVGA()
+        notsuccess()
 
 def NvidiaVGA():
     url = "https://download.msi.com/nb_drivers/vga/1107254_537.24_GameReady_WHQL_31.0.15.3724_0x30e04b3b.zip"  
@@ -130,11 +127,9 @@ def NvidiaVGA():
         with zipfile.ZipFile(downloads + "\\NvidiaVGA.zip") as zip_ref:
             zip_ref.extractall(downloads + "\\NvidiaVGA")
         os.remove(downloads + "\\NvidiaVGA.zip")
-        print(success)
-        os.system(downloads + "\\NvidiaVGA\\install.bat")
+        success()
     else:
-        print(notsuccess)
-    Chipset()
+        notsuccess()
 
 def Chipset():
     url = "https://download.msi.com/nb_drivers/cs/Intel_Chipset_10.1.19468.8385_10.1.19468.8385_0xcd599de1.zip"  
@@ -151,11 +146,9 @@ def Chipset():
         with zipfile.ZipFile(downloads + "\\Chipset.zip") as zip_ref:
             zip_ref.extractall(downloads + "\\Chipset")
         os.remove(downloads + "\\Chipset.zip")
-        print(success)
-        os.system(downloads + "\\Chipset\\install.bat")
+        success()
     else:
-        print(notsuccess)
-    Chipset2()
+        notsuccess()
 
 def Chipset2():
     url = "https://download.msi.com/nb_drivers/hdi/HIDEventFilterDriver-2.2.2.1_v3_RS5_19H1_20H1_21H2_22H2_Certified_2.2.2.1_0x185b20cf.zip"  
@@ -172,11 +165,9 @@ def Chipset2():
         with zipfile.ZipFile(downloads + "\\Chipset2.zip") as zip_ref:
             zip_ref.extractall(downloads + "\\Chipset2")
         os.remove(downloads + "\\Chipset2.zip")
-        print(success)
-        os.system(f"pnputil /add-driver {downloads}\\Chipset2\\drivers\\x64\\HidEventFilter.inf  /install")
+        success()
     else:
-        print(notsuccess)
-    Chipset3()
+        notsuccess()
 
 def Chipset3():
     url = "https://download.msi.com/nb_drivers/gna/gna-03.00.00.1457-win-3_0_sv2_resign-20220819_3.0.0.1457_0x9a3a0aa1.zip"  
@@ -193,9 +184,6 @@ def Chipset3():
         with zipfile.ZipFile(downloads + "\\Chipset3.zip") as zip_ref:
             zip_ref.extractall(downloads + "\\Chipset3")
         os.remove(downloads + "\\Chipset3.zip")
-        print(success)
-        os.system(f"pnputil /add-driver {downloads}\\Chipset3\\gna.inf  /install")
+        success()
     else:
-        print(notsuccess)
-
-bluetooth()
+        notsuccess()
