@@ -1,7 +1,7 @@
 import os
 import ctypes
-from download import bluetooth, IMED, IntelVGA, NvidiaVGA, TP, LAN, Chipset, Chipset2, Chipset3
-from install import ibluetooth, iIMED, iIntelVGA, iNvidiaVGA, iTP, iLAN, iChipset, iChipset2, iChipset3
+from modules.download import bluetooth, IMED, IntelVGA, NvidiaVGA, TP, LAN, Chipset, Chipset2, Chipset3
+from modules.install import ibluetooth, iIMED, iIntelVGA, iNvidiaVGA, iTP, iLAN, iChipset, iChipset2, iChipset3
 
 def start():
     print("""

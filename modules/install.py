@@ -9,8 +9,6 @@ def p():
 home = os.path.expanduser('~')
 downloads = os.path.join(home, 'Downloads')
 
-p = "\033[32m Installed! \033[0m"
-
 def ibluetooth():
     install(downloads + "\\bluetooth\\Win10_UWD\\WirelessSetup.exe")
     p()
@@ -45,10 +43,3 @@ def iChipset2():
 def iChipset3():
     install(f"pnputil /add-driver {downloads}\\Chipset3\\gna.inf  /install")
     p()
-
-
-
-
-
-
-
