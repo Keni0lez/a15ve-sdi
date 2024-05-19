@@ -34,6 +34,7 @@ def start():
     elif ask == 3:
         os.system("cls")
         bluetooth(), IMED(), TP(), Chipset(), Chipset2(), Chipset3(), LAN(), IntelVGA(), NvidiaVGA()
+        input("All downloaded...")
     elif ask == 4:
         os.system("cls")
         start()
